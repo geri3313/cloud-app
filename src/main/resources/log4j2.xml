@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
+        <!-- File appender to save logs to a file -->
+        <File name="File" fileName="/var/log/myapp.log">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </Console>
+        </File>
     </Appenders>
     <Loggers>
         <Root level="info">
-            <AppenderRef ref="Console"/>
+            <!-- Use the file appender -->
+            <AppenderRef ref="File"/>
         </Root>
     </Loggers>
 </Configuration>
