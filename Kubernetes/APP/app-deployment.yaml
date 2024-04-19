@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: lmilt95/fti:latest
+        image: geri3313/cloud-app:latest
         imagePullPolicy: Always
         securityContext:
           allowPrivilegeEscalation: false
