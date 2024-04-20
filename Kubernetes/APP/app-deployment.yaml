@@ -49,5 +49,13 @@ spec:
           initialDelaySeconds: 60
           failureThreshold: 3
           periodSeconds: 60
+        volumeMounts:
+        - name: log-volume
+          mountPath: /var/log
+
+      volumes:
+      - name: log-volume
+        emptyDir: {}
+
 
 # kubectl apply -f app-deployment.yaml 
