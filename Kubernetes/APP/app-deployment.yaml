@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: geri3313/cloud-app:latest
+        image: geri3313/cloud-app:8
         imagePullPolicy: Always
         securityContext:
           allowPrivilegeEscalation: false
