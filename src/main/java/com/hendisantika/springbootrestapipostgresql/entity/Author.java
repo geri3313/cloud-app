@@ -27,7 +27,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private Long id;    
     private String name;
     private String description;
     @ElementCollection(fetch = FetchType.EAGER)

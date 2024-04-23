@@ -51,8 +51,7 @@ spec:
           periodSeconds: 60
         volumeMounts:
         - name: log-volume
-          mountPath: /var/log
-
+          mountPath: /app/logs
       volumes:
       - name: log-volume
         emptyDir: {}
