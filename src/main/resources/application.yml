@@ -42,13 +42,3 @@ logging:
       name: STDOUT
       layout:
         pattern: "${logging.pattern.console}"
-
-#onAuth
-spring:
-  security:
-   oauth2:
-     client:
-       registration:
-         github:
-           clientId: ${GITHUB_CLIENT_ID}
-           clientSecret: ${GITHUB_CLIENT_SECRET}

@@ -77,11 +77,6 @@
              <artifactId>log4j-core</artifactId>
             <version>3.0.0-beta2</version>
         </dependency>
-         <!-- onAuth -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-oauth2-client</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
