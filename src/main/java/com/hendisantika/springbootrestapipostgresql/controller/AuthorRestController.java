@@ -20,6 +20,10 @@ public class AuthorRestController {
     @Autowired
     private AuthorRepository repository;
 
+    public AuthorRestController(AuthorRepository repository) {
+        this.repository = repository;
+    }
+
     @PostMapping
     public ResponseEntity<Author> addAuthor(@RequestBody Author author) {
         logger.info("Adding new Author");
@@ -29,8 +33,11 @@ public class AuthorRestController {
 
     @GetMapping
     public ResponseEntity<Collection<Author>> getAllAuthors() {
-        logger.info("Getting all Authors from the repository");
-        return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
+        logger.info("User requested to fetch all authors");
+        Collection<Author> authors = repository.findAll();
+        logger.info("Fetched {} authors", authors.size());
+        return new ResponseEntity<>(authors, HttpStatus.OK);
+
     }
 
     @GetMapping("/{id}")

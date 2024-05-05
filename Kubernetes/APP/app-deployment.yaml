@@ -12,20 +12,20 @@ spec:
       labels:
         app: backend
     spec:
+      initContainers:
+      - name: init-permissions
+        image: busybox
+        command: ["sh", "-c", "chmod -R 777 /app/logs"]
+        volumeMounts:
+        - name: log-volume
+          mountPath: /app/logs
       containers:
       - name: backend
         image: geri3313/cloud-app:8
         imagePullPolicy: Always
         securityContext:
-          allowPrivilegeEscalation: false
           runAsUser: 10001
-          seccompProfile:
-            type: RuntimeDefault
-          runAsNonRoot: true
-          readOnlyRootFilesystem: true
-          capabilities:
-            drop:
-            - ALL
+          runAsGroup: 10001
         resources:
           requests:
             memory: "1024Mi"
@@ -35,14 +35,14 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
-        livenessProbe:
+        readinessProbe: # Corrected readiness probe section
           httpGet:
             path: /
             port: 8080
           initialDelaySeconds: 60
           failureThreshold: 3
           periodSeconds: 60
-        readinessProbe:
+        livenessProbe:
           httpGet:
             path: /
             port: 8080

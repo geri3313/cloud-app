@@ -18,3 +18,27 @@ security:
   user:
     name: user
 password: user
+
+# Log4j configuration
+logging:
+  level:
+    root: INFO
+  file:
+    name: logs/application.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  loggers:
+    file:
+      name: FILE
+  appenders:
+    file:
+      type: File
+      name: FILE
+      fileName: "logs/application.log"
+      pattern: "${logging.pattern.file}"
+    console:
+      type: Console
+      name: STDOUT
+      layout:
+        pattern: "${logging.pattern.console}"
