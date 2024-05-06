@@ -10,14 +10,17 @@ spring:
   jpa:
     hibernate.ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-# Server configuration
-server:
-  port: 8080
-# Security configuration
-security:
-  user:
-    name: user
-password: user
+  # Server configuration
+  server:
+    port: 8080
+  # Security configuration
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Iv23liW1mGsrB8yfO7iC
+            clientSecret: 9044122c4af66c70f73a0358d8a1a2dff86ac157
 
 # Log4j configuration
 logging:
@@ -42,13 +45,3 @@ logging:
       name: STDOUT
       layout:
         pattern: "${logging.pattern.console}"
-
-#onAuth
-spring:
-  security:
-   oauth2:
-     client:
-       registration:
-         github:
-           clientId: ${GITHUB_CLIENT_ID}
-           clientSecret: ${GITHUB_CLIENT_SECRET}
