@@ -1,26 +1,32 @@
 # Spring Boot configuration
 spring:
+  profiles:
+    active: default
+  # Server configuration
+  server:
+    port: 8080
+
   # Database
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://flora.db.elephantsql.com/qahhmijs
     username: qahhmijs
     password: br5luxb8r-Lbq8ZgKzi45g_ziNSOecSY
+
   # JPA properties
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-  # Server configuration
-  server:
-    port: 8080
+
   # Security configuration
   security:
     oauth2:
       client:
         registration:
           github:
-            clientId: Iv23liW1mGsrB8yfO7iC
-            clientSecret: 9044122c4af66c70f73a0358d8a1a2dff86ac157
+            clientId: ${GITHUB_CLIENT_ID}
+            clientSecret: ${GITHUB_CLIENT_SECRET}
 
 # Log4j configuration
 logging:
